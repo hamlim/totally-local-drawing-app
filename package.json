@@ -1,0 +1,30 @@
+{
+  "name": "totally-local-drawing-app",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "bun run server-build & bun run client-build",
+    "server-build": "bun build ./server.tsx --target bun --outdir ./dist",
+    "server-dev": "bun build ./server.tsx --target bun --outdir ./dist --watch",
+    "client-build": "bun build ./client.tsx --target browser --format esm --outdir ./dist",
+    "client-dev": "bun build ./client.tsx --target browser --format esm --outdir ./dist --watch",
+    "dev": "concurrently \"bun run server-dev\" \"bun run client-dev\"",
+    "start": "bun run ./dist/server.js"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "@types/bun": "latest",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "concurrently": "^8.2.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "react": "0.0.0-experimental-a960b92c-20240819",
+    "react-dom": "0.0.0-experimental-a960b92c-20240819",
+    "restyle": "^2.0.4",
+    "tldraw": "2.4.4"
+  }
+}
